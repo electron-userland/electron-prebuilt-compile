@@ -7,7 +7,7 @@ electron-prebuilt-compile is a drop-in replacement for [electron-prebuilt](https
 Download and install the latest build of electron for your OS and add it to your projects `package.json` as a `devDependency`:
 
 ```
-npm install electron-prebuilt --save-dev
+npm install electron-prebuilt-compile --save-dev
 ```
 
 Now you can just run `electron` to run electron:
