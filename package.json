@@ -1,6 +1,6 @@
 {
   "name": "electron-prebuilt-compile",
-  "version": "0.0.4",
+  "version": "0.36.2",
   "description": "electron-prebuilt that automatically understands Babel + React + LESS",
   "bin": {
     "electron": "lib/cli.js"
