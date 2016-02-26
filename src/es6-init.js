@@ -7,9 +7,12 @@ function findPackageJson(initScript) {
     throw new Error("Can't find package.json");
   }
 
-  // Walk up the parent directories until we find package.json
+  // Walk up the parent directories until we find package.json. Make sure that
+  // we're not actually stumbling upon a parent npm package
   let ret = path.join(initScript, 'package.json')
-  if (fs.statSyncNoException(ret)) return ret;
+  if (fs.statSyncNoException(ret) && !path.resolve(path.dirname(ret), '..').match(/[\\\/]node_modules$/i)) {
+    return ret;
+  }
 
   return findPackageJson(path.dirname(initScript));
 }
