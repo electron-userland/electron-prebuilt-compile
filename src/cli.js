@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import electron from 'electron-prebuilt';
+import electron from 'electron';
 import proc from 'child_process';
 
 let params = [require.resolve('./es6-init')].concat(process.argv.slice(2));
