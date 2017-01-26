@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/paulcbetts/electron-prebuilt-compile",
   "dependencies": {
-    "electron": "1.4.15",
+    "electron": "1.5.0",
     "electron-compile": "*",
     "electron-compilers": "*",
     "babel-plugin-array-includes": "^2.0.3",
