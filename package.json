@@ -15,7 +15,7 @@
     "url": "https://github.com/paulcbetts/electron-prebuilt-compile"
   },
   "keywords": [
-    "esdoc"
+    "electron", "electron-compile", "sass", "less", "babel", "typescript", "coffeescript", "jade", "pug"
   ],
   "author": "Paul Betts <paul@paulbetts.org>",
   "license": "MIT",
