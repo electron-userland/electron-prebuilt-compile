@@ -18,14 +18,16 @@ function findPackageJson(initScript) {
 }
 
 function main() {
-  let initScript = path.resolve(process.argv[2]);
-  let packageJson = findPackageJson(initScript);
+  const initScript = path.resolve(process.argv[2]);
+  const packageJson = findPackageJson(initScript);
 
   // Reconstitute the original arguments
-  let args = process.argv.slice(2);
+  const args = process.argv.slice(2);
   process.argv = [process.argv[0]].concat(args);
-  
-  init(path.dirname(packageJson), initScript)
+
+  //passthrough electron-compile command args if it's specified
+  const parsedArgs = require('yargs').alias('c', 'cachedir').alias('s', 'sourcemapdir').argv;
+  init(path.dirname(packageJson), initScript, null, parsedArgs.c || null, parsedArgs.s || null);
 }
 
 main()
