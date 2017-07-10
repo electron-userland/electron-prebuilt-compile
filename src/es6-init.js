@@ -1,3 +1,4 @@
+import { app } from 'electron';
 import fs from 'fs';
 import path from 'path';
 import {init} from 'electron-compile';
@@ -20,6 +21,10 @@ function findPackageJson(initScript) {
 function main() {
   const initScript = path.resolve(process.argv[2]);
   const packageJson = findPackageJson(initScript);
+  const packageJsonData = JSON.parse(fs.readFileSync(packageJson, 'utf8'));
+
+  app.setName(packageJsonData.productName || packageJsonData.name);
+  app.setVersion(packageJsonData.version);
 
   // Reconstitute the original arguments
   const args = process.argv.slice(2);
