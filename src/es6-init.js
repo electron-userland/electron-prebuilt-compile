@@ -18,8 +18,18 @@ function findPackageJson(initScript) {
   return findPackageJson(path.dirname(initScript));
 }
 
+/**
+ * Some debugger environment reconstruct process argument and inject args ignoring original order,
+ * extract to find out right path for init script.
+ *
+ */
+function getInitScriptPath() {
+  const rawArgv = process.argv.filter((x) => x.indexOf(`--inspect=`) === -1 && x.indexOf(`--debug-brk`))[2];
+  return path.resolve(rawArgv);
+}
+
 function main() {
-  const initScript = path.resolve(process.argv[2]);
+  const initScript = getInitScriptPath();
   const packageJson = findPackageJson(initScript);
   const packageJsonData = JSON.parse(fs.readFileSync(packageJson, 'utf8'));
 
