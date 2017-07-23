@@ -24,7 +24,7 @@ function findPackageJson(initScript) {
  *
  */
 function getInitScriptPath() {
-  const rawArgv = process.argv.filter((x) => x.indexOf(`--inspect=`) === -1 && x.indexOf(`--debug-brk`))[2];
+  const rawArgv = process.argv.filter((x) => !(x.indexOf('--inspect') !== -1 || x.indexOf('--debug-brk') !== -1))[2];
   return path.resolve(rawArgv);
 }
 
