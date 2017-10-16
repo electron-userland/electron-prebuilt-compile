@@ -31,10 +31,12 @@ function getInitScriptPath() {
 function main() {
   const initScript = getInitScriptPath();
   const packageJson = findPackageJson(initScript);
+  const appPath = path.dirname(packageJson);
   const packageJsonData = JSON.parse(fs.readFileSync(packageJson, 'utf8'));
 
   app.setName(packageJsonData.productName || packageJsonData.name);
   app.setVersion(packageJsonData.version);
+  app.setAppPath(appPath);
 
   // Reconstitute the original arguments
   const args = process.argv.slice(2);
