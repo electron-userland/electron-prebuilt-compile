@@ -3,6 +3,16 @@ import fs from 'fs';
 import path from 'path';
 import {init} from 'electron-compile';
 
+function _statSyncNoException(fd) {
+  let result = null;
+  try {
+    result = fs.statSync(fd);
+  } catch(e) {
+  }
+
+  return result;
+}
+
 function findPackageJson(initScript) {
   if (initScript === '/' || initScript.match(/^[A-Za-z]:$/)) {
     throw new Error("Can't find package.json");
@@ -10,8 +20,8 @@ function findPackageJson(initScript) {
 
   // Walk up the parent directories until we find package.json. Make sure that
   // we're not actually stumbling upon a parent npm package
-  let ret = path.join(initScript, 'package.json')
-  if (fs.statSyncNoException(ret) && !path.resolve(path.dirname(ret), '..').match(/[\\\/]node_modules$/i)) {
+  let ret = path.join(initScript, 'package.json');
+  if (_statSyncNoException(ret) && !path.resolve(path.dirname(ret), '..').match(/[\\\/]node_modules$/i)) {
     return ret;
   }
 
