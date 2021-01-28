@@ -36,7 +36,7 @@
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-preset-es2016-node5": "^1.1.2",
     "babel-preset-react": "^6.24.1",
-    "electron": "4.0.0-beta.10",
+    "electron": "9.4.0",
     "electron-compile": "*",
     "electron-compilers": "*",
     "yargs": "^6.6.0"
