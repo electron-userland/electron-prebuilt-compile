@@ -1,5 +1,7 @@
 # electron-prebuilt-compile
 
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
 electron-prebuilt-compile is a drop-in replacement for [electron-prebuilt](https://github.com/mafintosh/electron-prebuilt) that natively understands ES6 + React + LESS + some other languages, powered by [electron-compile](https://github.com/electronjs/electron-compile).
 
 ## Installation
